@@ -1,0 +1,18 @@
+target_dataset,target_variable,source,derivation
+DM,STUDYID,constant,AOM-301
+DM,USUBJID,demographics.subject_id,Concatenate STUDYID and subject identifier
+DM,RFSTDTC,demographics.rand_date,ISO 8601 character date
+DM,SEX,demographics.sex,Copy and uppercase
+DM,RACE,demographics.race,Map Other to OTHER and uppercase
+DM,ARM,demographics.treatment,Map Active to Active 100 mg
+AE,USUBJID,adverse_events.subject_id,Concatenate STUDYID and subject identifier
+AE,AESEQ,adverse_events.ae_seq,Copy sequence
+AE,AETERM,adverse_events.reported_term,Copy reported term
+AE,AEDECOD,adverse_events.preferred_term,Uppercase preferred term
+AE,AEBODSYS,adverse_events.soc,Uppercase system organ class
+AE,AESEV,adverse_events.severity,Uppercase controlled value
+EX,EXDOSE,exposure.dose_mg,Numeric dose
+VS,VSSTRESN,vital_signs.result,Numeric standardized result
+ADSL,SAFFL,DM and EX,Y when at least one DOSED exposure record exists
+ADAE,TRTEMFL,AE and ADSL,Y when AE starts between treatment start and end
+

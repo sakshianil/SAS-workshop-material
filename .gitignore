@@ -1,0 +1,21 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+*.zip
+
+# SAS-generated outputs and permanent libraries
+**/data/sas_raw/
+**/data/sdtm/
+**/data/adam/
+**/data/derived/
+**/data/qc/
+**/output/*.html
+**/output/*.rtf
+**/output/*.pdf
+**/output/*.png
+**/output/tlf/
+**/output/qc/
+
+# Local transcript exports used during curriculum research
+www.youtube.com_watch*
+

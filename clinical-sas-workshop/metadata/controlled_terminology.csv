@@ -1,0 +1,12 @@
+codelist,submitted_value,source_variants
+SEX,F,Female|F
+SEX,M,Male|M
+AESEV,MILD,Mild|mild|MILD
+AESEV,MODERATE,Moderate|moderate|MODERATE
+AESEV,SEVERE,Severe|severe|SEVERE
+NY,Y,Yes|Y
+NY,N,No|N
+POSITION,SITTING,SITTING|Seated
+ARM,ACTIVE 100 MG,Active
+ARM,PLACEBO,Placebo
+
