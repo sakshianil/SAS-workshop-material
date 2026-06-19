@@ -168,6 +168,12 @@ manifests, SAS logs, HTML/RTF reports, screenshots, dataset counts, and
 No runtime evidence should contain real patient data, confidential trial
 information, usernames, credentials, or private filesystem paths.
 
+Available evidence:
+
+- [Module 09 systolic-BP figure generated in SAS OnDemand on 2026-06-19](outputs/clinical-sas-workshop/2026-06-19-sas-ondemand/)
+  — partial runtime proof with a redacted HTML wrapper, PNG figure, checksums,
+  and an evidence manifest.
+
 ## Video context
 
 The synthetic workshop was organized after reviewing long-form public training

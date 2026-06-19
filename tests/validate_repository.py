@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import subprocess
 import sys
+import hashlib
 from urllib.parse import unquote
 from pathlib import Path
 import re
@@ -30,6 +31,11 @@ REQUIRED_FILES = [
     "outputs/OUTPUT_MANIFEST_TEMPLATE.md",
     "outputs/clinical-sas-workshop/README.md",
     "outputs/cdisc-pilot-mini-workshop/README.md",
+    "outputs/clinical-sas-workshop/2026-06-19-sas-ondemand/README.md",
+    "outputs/clinical-sas-workshop/2026-06-19-sas-ondemand/RUN_MANIFEST.md",
+    "outputs/clinical-sas-workshop/2026-06-19-sas-ondemand/SHA256SUMS.txt",
+    "outputs/clinical-sas-workshop/2026-06-19-sas-ondemand/SGPlot1.png",
+    "outputs/clinical-sas-workshop/2026-06-19-sas-ondemand/table_14_3_1_and_figure.html",
 ]
 
 REQUIRED_README_PHRASES = [
@@ -100,6 +106,51 @@ def validate_local_markdown_links() -> None:
                 )
 
 
+def sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for block in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(block)
+    return digest.hexdigest()
+
+
+def validate_output_evidence() -> None:
+    evidence_root = (
+        ROOT / "outputs" / "clinical-sas-workshop" / "2026-06-19-sas-ondemand"
+    )
+    checksums = require_file(
+        "outputs/clinical-sas-workshop/2026-06-19-sas-ondemand/SHA256SUMS.txt"
+    ).read_text(encoding="utf-8")
+    for line in checksums.splitlines():
+        if not line.strip():
+            continue
+        expected, filename = line.split(maxsplit=1)
+        path = evidence_root / filename
+        if not path.is_file():
+            fail(f"runtime evidence file is missing: {path.relative_to(ROOT)}")
+        actual = sha256(path)
+        if actual != expected:
+            fail(
+                f"runtime evidence checksum mismatch: {path.relative_to(ROOT)}"
+            )
+
+    html = require_file(
+        "outputs/clinical-sas-workshop/2026-06-19-sas-ondemand/"
+        "table_14_3_1_and_figure.html"
+    ).read_text(encoding="utf-8")
+    if 'src="SGPlot1.png"' not in html:
+        fail("runtime HTML must reference the published figure relatively")
+    forbidden_runtime_patterns = [
+        r"/home/[^<\"'\s]+",
+        r"/Users/[^<\"'\s]+",
+        r"file://",
+        r"mailto:",
+    ]
+    for pattern in forbidden_runtime_patterns:
+        if re.search(pattern, html, re.I):
+            fail(f"runtime HTML exposes private or non-portable data: {pattern}")
+
+
 def run_validator(relative: str) -> None:
     path = require_file(relative)
     completed = subprocess.run(
@@ -119,6 +170,7 @@ def main() -> int:
     try:
         validate_structure()
         validate_local_markdown_links()
+        validate_output_evidence()
         run_validator("clinical-sas-workshop/tests/validate_workshop.py")
         run_validator("cdisc-pilot-mini-workshop/tests/validate_pilot.py")
     except AssertionError as exc:

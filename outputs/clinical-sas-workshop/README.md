@@ -14,3 +14,9 @@ selected HTML/RTF reports, the vital-sign figure, and QC comparison evidence.
 
 All underlying study records are artificially generated and hypothetical. Do
 not mix them with real clinical data.
+
+## Published runs
+
+- [`2026-06-19-sas-ondemand/`](2026-06-19-sas-ondemand/) — partial runtime
+  evidence for the Module 09 systolic-BP figure. The package includes a
+  privacy-safe HTML file, PNG image, run manifest, and checksums.

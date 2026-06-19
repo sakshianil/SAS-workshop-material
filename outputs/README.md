@@ -56,3 +56,11 @@ workflow ran correctly.
 
 Until such evidence is added, documentation should say that static validation
 passed and SAS runtime verification remains to be supplied.
+
+## Available evidence
+
+- [Clinical SAS workshop — 2026-06-19 SAS OnDemand figure evidence](clinical-sas-workshop/2026-06-19-sas-ondemand/)
+
+This first package is intentionally labeled partial evidence because the
+supplied files prove figure generation but do not include the complete run log,
+setup checks, all reports, or QC comparisons.
