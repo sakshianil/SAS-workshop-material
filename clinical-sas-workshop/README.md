@@ -6,9 +6,12 @@ move the same synthetic records through the clinical programming lifecycle:
 
 `CSV source data → review/QC → SDTM-style domains → ADaM-style datasets → TLFs → QC`
 
-The materials are original and use no patient data. The SDTM and ADaM datasets
-are intentionally simplified teaching examples—not submission-ready CDISC
-deliverables.
+The materials are original and use no patient data. Every source record is
+artificially generated, hypothetical simulation data created for education.
+The records simulate realistic clinical-programming problems but do not
+represent a real study, participant, treatment, or outcome. The SDTM and ADaM
+datasets are intentionally simplified teaching examples—not submission-ready
+CDISC deliverables.
 
 ← [Back to the repository overview](../README.md)
 
@@ -69,5 +72,7 @@ timings.
 
 The study, subjects, events, and results are synthetic. Controlled terminology,
 domain structures, and validation examples are educational approximations.
+No PHI, PII, confidential sponsor data, or real clinical-trial data are
+included or permitted.
 Consult current licensed CDISC standards, sponsor standards, and validated
 tools for regulated production work.

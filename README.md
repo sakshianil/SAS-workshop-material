@@ -17,6 +17,11 @@ a reported result back to its source.
 > patterns. They are not validated production systems, official CDISC training,
 > medical guidance, or submission-ready deliverables.
 
+> **Data confidentiality:** No confidential clinical-trial or real patient data
+> are used. The beginner workshop uses artificially generated, hypothetical
+> simulation data. The reference workshop uses selected public CDISC
+> test/pilot artifacts with attribution and integrity checks.
+
 ## Why this repository exists
 
 Clinical SAS training often teaches syntax separately from the work that gives
@@ -83,9 +88,11 @@ More detail is available in
 .
 ├── clinical-sas-workshop/          # Synthetic end-to-end learning study
 ├── cdisc-pilot-mini-workshop/      # Reference-based CDISC pilot labs
+├── outputs/                        # Redacted SAS runtime evidence
 ├── docs/                           # Learning path, pipeline and resources
 ├── tests/                          # Repository publication checks
 ├── .github/workflows/              # Automated validation
+├── CLAUDE.md                       # Reproducibility and data-governance rules
 ├── CONTRIBUTING.md
 ├── LICENSE
 └── LICENSES.md
@@ -126,7 +133,10 @@ and vital-sign source files for approximately 60 subjects. The data deliberately
 include partial dates, screen failures, missed doses, early discontinuations,
 ongoing events, inconsistent source terminology, and repeated measurements.
 
-No real patient information is included.
+These are artificially created simulation data. They are designed to behave
+like realistic clinical-programming inputs, but they do not represent a real
+study, real participants, real treatments, or real outcomes. No real patient
+information, PHI, PII, or sponsor-confidential information is included.
 
 ### CDISC pilot study
 
@@ -143,6 +153,20 @@ The second workshop uses selected unchanged artifacts from
 The associated XPT, Dataset-JSON, Define-XML, and selected reference programs
 are retained with CDISC attribution. SHA-256 checks protect the copied source
 artifacts from accidental modification.
+
+These files are public CDISC test/pilot reference material. They are not
+confidential sponsor data, and this repository does not claim to have created
+them. Their original terms and disclaimer remain applicable.
+
+## Runtime proof
+
+The root [`outputs/`](outputs/) directory is reserved for redacted evidence
+from actual SAS executions. When provided, it can contain completed run
+manifests, SAS logs, HTML/RTF reports, screenshots, dataset counts, and
+`PROC COMPARE` results tied to a specific Git commit.
+
+No runtime evidence should contain real patient data, confidential trial
+information, usernames, credentials, or private filesystem paths.
 
 ## Video context
 
@@ -195,6 +219,9 @@ The validation checks:
 
 SAS runtime verification is performed by running each workshop's setup checks
 and final `run_all_solutions.sas` program in SAS OnDemand.
+
+The complete reproducibility contract, expected counts, execution order, and
+evidence-publication rules are documented in [`CLAUDE.md`](CLAUDE.md).
 
 ## Licensing and attribution
 

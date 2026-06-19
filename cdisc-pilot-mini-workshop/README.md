@@ -58,3 +58,13 @@ XPT / Dataset-JSON / Define-XML inspection
 This is an educational companion, not a regulatory deliverable. It does not
 replace current CDISC standards, sponsor specifications, statistical review,
 conformance validation, or controlled production processes.
+
+## Data-provenance statement
+
+The selected source artifacts are public CDISC test/pilot material. They are
+not confidential sponsor datasets supplied by the repository owner, and this
+project does not claim to have generated them. The original CDISC attribution,
+terms, disclaimer, and source hashes are retained.
+
+Do not combine this workshop with real patient data, PHI, PII, or confidential
+clinical-trial information.

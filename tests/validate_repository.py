@@ -17,6 +17,7 @@ REQUIRED_FILES = [
     "LICENSES.md",
     "CONTRIBUTING.md",
     "CITATION.cff",
+    "CLAUDE.md",
     "docs/LEARNING_PATH.md",
     "docs/CLINICAL_PROGRAMMING_PIPELINE.md",
     "docs/RESOURCES.md",
@@ -25,6 +26,10 @@ REQUIRED_FILES = [
     "clinical-sas-workshop/START_HERE.md",
     "cdisc-pilot-mini-workshop/README.md",
     "cdisc-pilot-mini-workshop/START_HERE.md",
+    "outputs/README.md",
+    "outputs/OUTPUT_MANIFEST_TEMPLATE.md",
+    "outputs/clinical-sas-workshop/README.md",
+    "outputs/cdisc-pilot-mini-workshop/README.md",
 ]
 
 REQUIRED_README_PHRASES = [
@@ -36,6 +41,8 @@ REQUIRED_README_PHRASES = [
     "ADaM",
     "tables, listings, and figures",
     "Educational",
+    "artificially generated",
+    "outputs/",
 ]
 
 FORBIDDEN_NAMES = {".DS_Store"}

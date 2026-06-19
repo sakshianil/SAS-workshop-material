@@ -6,6 +6,11 @@ Unless otherwise noted, the SAS programs, Python validation scripts, exercises,
 solutions, and documentation authored for this repository are available under
 the root [MIT License](LICENSE).
 
+The source data under `clinical-sas-workshop/data/raw/` are artificially
+generated, hypothetical simulation data created for this educational project.
+They contain no real patient information and are covered by the repository
+license.
+
 ## CDISC pilot artifacts
 
 Files under these paths originate from the public CDISC SDTM/ADaM pilot project
@@ -32,4 +37,3 @@ The repository links to third-party videos, standards, documentation, and
 software pages. Those resources remain the property of their respective
 owners. No transcript dumps, videos, or third-party website content are
 included in this repository.
-
