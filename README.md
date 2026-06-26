@@ -124,6 +124,16 @@ Detailed setup:
 - [Synthetic workshop setup](clinical-sas-workshop/START_HERE.md)
 - [CDISC pilot setup](cdisc-pilot-mini-workshop/START_HERE.md)
 
+## Portfolio website
+
+This repository also includes a lightweight GitHub Pages showcase in
+[`docs/index.html`](docs/index.html). It introduces the workshop, embeds the
+HeyGen professional intro video when HeyGen permits iframe playback, and provides
+direct calls to action for learners who want to use or star the repository.
+
+To publish it, enable GitHub Pages from branch `main` and folder `/docs`. See
+[`docs/GITHUB_PAGES.md`](docs/GITHUB_PAGES.md) for the exact settings.
+
 ## Datasets
 
 ### Synthetic Phase III study
